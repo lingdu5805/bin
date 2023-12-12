@@ -57,18 +57,20 @@ for i in POT:
 #######↑↑↑↑↑↑↑↑---[print]---↑↑↑↑↑↑↑↑#######
 
 #######↓↓↓↓↓↓↓↓---[draw]---↓↓↓↓↓↓↓↓#######
+max_P=1.2*(max(POTEV)-min(POTEV))+min(POTEV)
+max_T=1.2*(max(T)-min(T))+min(T)
 gp.s([tim, K, T, POTEV], ".md")
 gp.c('set term dumb size ' + str(totalwidth/2) + ',' + str(totalhigth/2) + ';set size 1,1;set yrange [' + str(
-    min(POTEV)) + ':' + str(max(POTEV)) + '];set xrange [' + str(startime) + ':' + str(
-    endtime) + '];set xlabel "Time[fs]";set ylabel "POTENTIAL[eV]";plot ".md" u 1:4 w l lc 3 axis x1y1 t "POTENTIAL['
+    min(POTEV)) + ':' + str(max_P) + '];set xrange [' + str(startime) + ':' + str(
+    endtime) + '];set xlabel "Time[fs]";set ylabel "Potential[eV]";plot ".md" u 1:4 w l lc 3 axis x1y1 t "Potential['
                'eV]" ')
 gp.c('set term dumb size ' + str(totalwidth/2) + ',' + str(totalhigth/2) + ';set size 1,1;set yrange [' + str(
-    min(T)) + ':' + str(max(T)) + '];set xrange [' + str(startime) + ':' + str(
-    endtime) + '];set xlabel "Time[fs]";set ylabel "TEMPERATURE[K]";plot ".md" u 1:3 w l lc 6 axis x1y1 t '
-               '"TEMPERATURE[K]" ')
+    min(T)) + ':' + str(max_T) + '];set xrange [' + str(startime) + ':' + str(
+    endtime) + '];set xlabel "Time[fs]";set ylabel "Tempurture[K]";plot ".md" u 1:3 w l lc 6 axis x1y1 t '
+               '"Tempurture[K]" ')
 '''gp.c('set term dumb size '+str(totalwidth)+','+str(totalhigth)+';set size 1,1;set yrange ['+str(min(
-POTEV))+':'+str(max(POTEV))+'];set xrange ['+str(startime)+':'+str(endtime)+'];set xlabel "Time[fs]";set y2tics;set 
-y2range ['+str(min(T))+':'+str(max(T))+'];set ylabel "POTENTIAL[eV]";set y2label "TEMPERATURE[K]";plot ".md" u 1:4 w 
+POTEV))+':'+str(max(POTEV))+'];set xrange ['+str(startime)+':'+str(endtime)+'];set xlabel "Time[fs]";set y2tics;set
+y2range ['+str(min(T))+':'+str(max(T))+'];set ylabel "POTENTIAL[eV]";set y2label "TEMPERATURE[K]";plot ".md" u 1:4 w
 l lc 3 axis x1y1 t "POTENTIAL[eV]" , ".md" u 1:3  w l lc 6 axis x1y2 t "TEMPERATURE[K]"')'''
 #######↑↑↑↑↑↑↑↑---[draw]---↑↑↑↑↑↑↑↑#######
 time.sleep(0.1)
