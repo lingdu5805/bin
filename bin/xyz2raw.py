@@ -4,7 +4,7 @@ from scipy import constants
 AVOGADRO = constants.Avogadro  # Avagadro constant
 ELE_CHG = constants.elementary_charge  # Elementary Charge, in C
 BOHR = constants.value("atomic unit of length")  # Bohr, in m
-HARTREE = constants.value("atomic unit of energy")  # Hartree, in Jole
+HARTREE = constants.value("atomic unit of energy")  # Hartree, in Jole  
 RYDBERG = constants.Rydberg * constants.h * constants.c  # Rydberg, in Jole
 
 # energy conversions
@@ -25,7 +25,8 @@ lconvs = {
     "m": 1e10,
 }
 hartree = HARTREE / ELE_CHG /  BOHR / 1e10
-
+#HARTREE = 4.3597447222071e-18
+#hartree = 51.42206747632595
 def convert_xyz_to_raw(xyz_file, raw_file):
     with open(xyz_file, 'r') as f_in, open(raw_file, 'w') as f_out:
         while True:
